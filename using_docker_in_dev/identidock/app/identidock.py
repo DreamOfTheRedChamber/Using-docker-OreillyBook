@@ -5,8 +5,8 @@ app = Flask(__name__)
 default_name = 'Joe Bloggs'
 
 
-@app.route('/')
-def get_identicon():
+@app.route('/', methods=['GET', 'POST'])
+def mainpage():
 
     name = default_name
 
@@ -21,6 +21,7 @@ def get_identicon():
     footer = '</body></html>'
 
     return header + body + footer
+
 
 @app.route('/monster/<name>')
 def get_identicon(name):
